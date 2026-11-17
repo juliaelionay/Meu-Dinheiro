@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Criar conta | Meu Dinheiro</title>
+
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+	<header class="header">
+		<div class="container header-content">
+			<a href="/" class="logo">Meu<span>Dinheiro.</span></a>
+
+			<nav class="nav">
+				<a href="/">Início</a> <a href="/login" class="btn-outline">Entrar</a>
+			</nav>
+		</div>
+	</header>
+
+	<main class="auth-section">
+		<div class="auth-card">
+
+			<div class="auth-header">
+				<h1>Crie sua conta</h1>
+				<p>Comece a organizar sua vida financeira.</p>
+			</div>
+
+			<div class="alert success" th:if="${sucesso}" th:text="${sucesso}"></div>
+			<div class="alert error" th:if="${erro}" th:text="${erro}"></div>
+
+			<form th:action="@{/cadastro}" th:object="${usuario}" method="post">
+
+				<div class="form-group">
+					<label for="nome">Nome completo</label> <input type="text"
+						id="nome" th:field="*{nome}" placeholder="Digite seu nome"
+						required>
+				</div>
+
+				<div class="form-group">
+					<label for="email">E-mail</label> <input type="email" id="email"
+						th:field="*{email}" placeholder="seuemail@exemplo.com" required>
+				</div>
+
+				<div class="form-group">
+					<label for="senha">Senha</label> <input type="password" id="senha"
+						th:field="*{senha}" placeholder="Crie uma senha" required
+						minlength="8">
+				</div>
+
+				<button type="submit" class="btn-primary btn-full">Criar
+					minha conta</button>
+
+			</form>
+
+			<p class="auth-footer">
+				Já possui uma conta? <a href="/login">Entrar</a>
+			</p>
+
+		</div>
+	</main>
+
+	<footer class="footer">
+		<div class="container">
+			<p>© 2026 Meu Dinheiro. Controle sua vida financeira.</p>
+		</div>
+	</footer>
+
+</body>
+</html>

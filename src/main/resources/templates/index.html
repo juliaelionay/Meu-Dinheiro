@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meu Dinheiro | Controle Financeiro</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container navbar">
+
+            <a href="/" class="logo">
+                Meu<span>Dinheiro.</span>
+            </a>
+
+            <nav>
+                <a href="#inicio">Início</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#funcionalidades">Funcionalidades</a>
+            </nav>
+
+            <div class="nav-buttons">
+                <a href="/login" class="login">Entrar</a>
+                <a href="/cadastro" class="btn-primary">Criar conta</a>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero" id="inicio">
+
+            <div class="container hero-content">
+
+                <div class="hero-text">
+
+                    <span class="tag">
+                        ORGANIZE SUA VIDA FINANCEIRA
+                    </span>
+
+                    <h1>
+                        Seu dinheiro merece
+                        <span>um destino melhor.</span>
+                    </h1>
+
+                    <p>
+                        Tenha controle sobre suas receitas e despesas,
+                        acompanhe seu saldo e organize sua vida financeira
+                        em um só lugar.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="/cadastro" class="btn-primary">
+                            Começar agora
+                        </a>
+
+                        <a href="#sobre" class="btn-secondary">
+                            Conhecer o sistema
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="hero-card">
+
+                    <div class="card-header">
+                        <span>Resumo financeiro</span>
+                        <span class="status">● Demonstração</span>
+                    </div>
+
+                    <div class="balance">
+                        <p>Saldo disponível</p>
+                        <h2>R$ 2.850,00</h2>
+                    </div>
+
+                    <div class="financial-info">
+
+                        <div class="info-box">
+                            <span>Entradas</span>
+                            <strong class="income">+ R$ 4.500,00</strong>
+                        </div>
+
+                        <div class="info-box">
+                            <span>Despesas</span>
+                            <strong class="expense">- R$ 1.650,00</strong>
+                        </div>
+
+                    </div>
+
+                    <div class="card-footer">
+                        <span>Controle simples.</span>
+                        <strong>Vida organizada.</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="features" id="funcionalidades">
+
+            <div class="container">
+
+                <div class="section-title">
+                    <span>FUNCIONALIDADES</span>
+                    <h2>Tudo o que você precisa</h2>
+                    <p>Ferramentas simples para cuidar melhor do seu dinheiro.</p>
+                </div>
+
+                <div class="feature-grid">
+
+                    <article class="feature">
+                        <div class="feature-icon">💰</div>
+                        <h3>Controle de entradas</h3>
+                        <p>Registre seus recebimentos e acompanhe tudo o que entra.</p>
+                    </article>
+
+                    <article class="feature">
+                        <div class="feature-icon">📉</div>
+                        <h3>Controle de despesas</h3>
+                        <p>Registre seus gastos e saiba para onde seu dinheiro está indo.</p>
+                    </article>
+
+                    <article class="feature">
+                        <div class="feature-icon">📊</div>
+                        <h3>Resumo financeiro</h3>
+                        <p>Visualize suas entradas, despesas e saldo disponível.</p>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="about" id="sobre">
+            <div class="container about-content">
+                <h2>Mais organização, menos preocupação.</h2>
+                <p>
+                    O Meu Dinheiro foi desenvolvido para tornar
+                    o controle financeiro pessoal mais simples,
+                    acessível e organizado.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Meu Dinheiro. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
