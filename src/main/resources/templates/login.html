@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrar | Meu Dinheiro</title>
+
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+	<header class="header">
+		<div class="container header-content">
+			<a href="/" class="logo">Meu<span>Dinheiro.</span></a>
+
+			<nav class="nav">
+				<a href="/">Início</a> <a href="/cadastro" class="btn-outline">Criar
+					conta</a>
+			</nav>
+		</div>
+	</header>
+
+	<main class="auth-section">
+		<div class="auth-card">
+
+			<div class="auth-header">
+				<h1>Bem-vindo de volta!</h1>
+				<p>Entre para acessar sua vida financeira.</p>
+			</div>
+
+			<div class="alert error" th:if="${param.error}">E-mail ou senha
+				incorretos.</div>
+
+			<div class="alert success" th:if="${param.logout}">Você saiu da
+				sua conta com sucesso.</div>
+
+			<form th:action="@{/login}" method="post">
+
+				<div class="form-group">
+					<label for="username">E-mail</label> <input type="email"
+						id="username" name="username" placeholder="seuemail@exemplo.com"
+						required>
+				</div>
+
+				<div class="form-group">
+					<label for="password">Senha</label> <input type="password"
+						id="password" name="password" placeholder="Digite sua senha"
+						required>
+				</div>
+
+				<button type="submit" class="btn-primary btn-full">Entrar</button>
+
+			</form>
+
+			<p class="auth-footer">
+				Ainda não possui uma conta? <a href="/cadastro">Criar conta</a>
+			</p>
+
+		</div>
+	</main>
+
+	<footer class="footer">
+		<div class="container">
+			<p>© 2026 Meu Dinheiro. Controle sua vida financeira.</p>
+		</div>
+	</footer>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Painel Administrativo</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<h1>Painel Administrativo</h1>
+	<p>Bem-vindo! Você possui acesso de administrador.</p>
+
+	<form th:action="@{/logout}" method="post">
+		<button type="submit">Sair</button>
+	</form>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Demonstração</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<h1>Área do Visitante</h1>
+	<p>Bem-vindo! Você está utilizando a demonstração do Meu Dinheiro.</p>
+
+	<form th:action="@{/logout}" method="post">
+		<button type="submit">Sair</button>
+	</form>
+</body>
+</html>
