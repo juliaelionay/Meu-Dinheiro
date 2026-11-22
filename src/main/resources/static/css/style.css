@@ -68,10 +68,12 @@ nav a:hover, .login:hover {
 	background: #159b65;
 	color: white;
 	padding: 13px 22px;
+	margin: 15px 5px;
 	border-radius: 8px;
 	text-decoration: none;
 	font-weight: bold;
 	display: inline-block;
+	border-radius: 8px
 }
 
 .btn-primary:hover {
@@ -471,5 +473,209 @@ footer {
 	}
 	.logo {
 		font-size: 21px;
+	}
+}
+
+/* ==============================
+   PÁGINAS DE MOVIMENTAÇÕES
+============================== */
+.page-section {
+	min-height: 85vh;
+	background: #f7f9f8;
+	padding: 60px 20px;
+}
+
+.page-container {
+	width: 100%;
+	max-width: 1050px;
+	margin: 0 auto;
+}
+
+.page-header {
+	margin-bottom: 30px;
+}
+
+.page-header h1 {
+	color: #173d32;
+	font-size: 30px;
+	margin-bottom: 10px;
+}
+
+.page-header p {
+	color: #718078;
+	font-size: 14px;
+}
+
+.page-card {
+	background: #ffffff;
+	padding: 35px;
+	border-radius: 16px;
+	box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
+}
+
+.page-card form {
+	max-width: 550px;
+}
+
+.page-card .form-group {
+	margin-bottom: 20px;
+}
+
+.page-card .form-group input, .page-card .form-group select {
+	width: 100%;
+	padding: 13px 14px;
+	border: 1px solid #dce5df;
+	border-radius: 8px;
+	font-size: 14px;
+	outline: none;
+	transition: 0.2s;
+	background: #ffffff;
+}
+
+.page-card .form-group input:focus, .page-card .form-group select:focus
+	{
+	border-color: #23966b;
+	box-shadow: 0 0 0 3px rgba(35, 150, 107, 0.10);
+}
+
+.page-actions {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	margin-top: 25px;
+	flex-wrap: wrap;
+}
+
+.page-link {
+	color: #23966b;
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 14px;
+}
+
+.page-link:hover {
+	text-decoration: underline;
+}
+
+/* TABELA */
+.table-container {
+	width: 100%;
+	overflow-x: auto;
+}
+
+.movements-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.movements-table th {
+	background: #f2faf5;
+	color: #29483e;
+	font-size: 13px;
+	font-weight: 700;
+	text-align: left;
+	padding: 17px;
+}
+
+.movements-table td {
+	padding: 17px;
+	color: #4b5563;
+	font-size: 14px;
+	border-bottom: 1px solid #eeeeee;
+}
+
+.movements-table tbody tr:hover {
+	background: #fafcfb;
+}
+
+.movements-table .income {
+	color: #159b65;
+	font-weight: 600;
+}
+
+.movements-table .expense {
+	color: #dc5656;
+	font-weight: 600;
+}
+
+.empty-message {
+	text-align: center;
+	color: #718078;
+	padding: 30px !important;
+}
+
+@media ( max-width : 600px) {
+	.page-section {
+		padding: 35px 15px;
+	}
+	.page-card {
+		padding: 22px;
+	}
+	.page-header h1 {
+		font-size: 25px;
+	}
+	.movements-table th, .movements-table td {
+		padding: 12px;
+		white-space: nowrap;
+	}
+}
+
+/* ==============================
+   RESUMO FINANCEIRO
+============================== */
+.summary-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 20px;
+	margin: 0 0 30px;
+	align-items: stretch;
+	justify-items: stretch;
+}
+
+.summary-card {
+	background: #ffffff;
+	padding: 20px;
+	border-radius: 14px;
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+	border: 1px solid #edf1ee;
+	height: 100px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	margin: 0;
+	align-self: stretch;
+}
+
+.summary-card span {
+	display: block;
+	color: #718078;
+	font-size: 14px;
+	margin-bottom: 12px;
+}
+
+.summary-card strong {
+	display: block;
+	font-size: 23px;
+	font-weight: 700;
+	line-height: 1.3;
+}
+
+.summary-card.income strong {
+	color: #159b65;
+}
+
+.summary-card.expense strong {
+	color: #dc5656;
+}
+
+.summary-card.balance strong {
+	color: #23966b;
+}
+
+@media ( max-width : 700px) {
+	.summary-grid {
+		grid-template-columns: 1fr;
 	}
 }

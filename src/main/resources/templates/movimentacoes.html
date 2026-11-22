@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Minhas Movimentações | Meu Dinheiro</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+	<section class="page-section">
+		<main class="page-container">
+
+			<div class="page-header">
+				<h1>Minhas movimentações</h1>
+				<p>Acompanhe suas entradas e despesas.</p>
+			</div>
+
+			<div class="summary-grid">
+
+				<div class="summary-card income">
+					<span>Total de entradas</span> <strong
+						th:text="${'R$ ' + #numbers.formatDecimal(totalEntradas, 1, 'POINT', 2, 'COMMA')}">
+						R$ 0,00 </strong>
+				</div>
+
+				<div class="summary-card expense">
+					<span>Total de despesas</span> <strong
+						th:text="${'R$ ' + #numbers.formatDecimal(totalDespesas, 1, 'POINT', 2, 'COMMA')}">
+						R$ 0,00 </strong>
+				</div>
+
+				<div class="summary-card balance">
+					<span>Saldo atual</span> <strong
+						th:text="${'R$ ' + #numbers.formatDecimal(saldo, 1, 'POINT', 2, 'COMMA')}">
+						R$ 0,00 </strong>
+				</div>
+
+			</div>
+
+			<div class="page-actions">
+				<a th:href="@{/usuario/movimentacoes/nova}" class="btn-primary">
+					+ Nova movimentação </a>
+			</div>
+
+			<div class="page-card">
+
+				<div class="table-container">
+					<table class="movements-table">
+
+						<thead>
+							<tr>
+								<th>Descrição</th>
+								<th>Valor</th>
+								<th>Data</th>
+								<th>Tipo</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr th:each="movimentacao : ${movimentacoes}">
+								<td th:text="${movimentacao.descricao}"></td>
+
+								<td th:text="${'R$ ' + movimentacao.valor}"
+									th:classappend="${movimentacao.tipo == 'ENTRADA'} ? 'income' : 'expense'">
+								</td>
+
+								<td th:text="${movimentacao.data}"></td>
+
+								<td th:text="${movimentacao.tipo}"></td>
+							</tr>
+
+							<tr th:if="${#lists.isEmpty(movimentacoes)}">
+								<td colspan="4" class="empty-message">Nenhuma movimentação
+									cadastrada.</td>
+							</tr>
+						</tbody>
+
+					</table>
+				</div>
+
+			</div>
+
+			<div class="page-actions">
+				<a th:href="@{/usuario/painel}" class="page-link"> Voltar ao
+					painel </a>
+			</div>
+
+		</main>
+	</section>
+
+</body>
+</html>
