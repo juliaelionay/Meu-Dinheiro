@@ -13,9 +13,11 @@
 
 			<div class="page-header">
 				<h1>Minhas movimentações</h1>
-				<p>Acompanhe suas entradas e despesas.</p>
+				<p th:text="|Olá, ${nomeUsuario}! Sua conta está conectada.|">
+					Olá! Sua conta está conectada.</p>
 			</div>
 
+			<!-- RESUMO FINANCEIRO -->
 			<div class="summary-grid">
 
 				<div class="summary-card income">
@@ -38,47 +40,71 @@
 
 			</div>
 
+			<!-- AÇÕES -->
 			<div class="page-actions">
+
 				<a th:href="@{/usuario/movimentacoes/nova}" class="btn-primary">
 					+ Nova movimentação </a>
+
+				<form th:action="@{/logout}" method="post">
+					<button type="submit" class="btn-primary">Sair da conta</button>
+				</form>
+
 			</div>
 
+			<!-- TABELA DE MOVIMENTAÇÕES -->
 			<div class="page-card">
-
 				<div class="table-container">
-					<table class="movements-table">
 
+					<table class="movements-table">
 						<thead>
 							<tr>
 								<th>Descrição</th>
 								<th>Valor</th>
 								<th>Data</th>
 								<th>Tipo</th>
+								<th>Ações</th>
 							</tr>
 						</thead>
 
 						<tbody>
+
 							<tr th:each="movimentacao : ${movimentacoes}">
+
 								<td th:text="${movimentacao.descricao}"></td>
 
-								<td th:text="${'R$ ' + movimentacao.valor}"
+								<td
+									th:text="${'R$ ' + #numbers.formatDecimal(movimentacao.valor, 1, 'POINT', 2, 'COMMA')}"
 									th:classappend="${movimentacao.tipo == 'ENTRADA'} ? 'income' : 'expense'">
 								</td>
 
 								<td th:text="${movimentacao.data}"></td>
 
 								<td th:text="${movimentacao.tipo}"></td>
+
+								<td class="movement-actions"><a
+									th:href="@{/usuario/movimentacoes/editar/{id}(id=${movimentacao.id})}"
+									class="btn-edit"> Editar </a>
+
+									<form
+										th:action="@{/usuario/movimentacoes/excluir/{id}(id=${movimentacao.id})}"
+										method="post"
+										onsubmit="return confirm('Deseja realmente excluir esta movimentação?');">
+
+										<button type="submit" class="btn-delete">Excluir</button>
+
+									</form></td>
 							</tr>
 
 							<tr th:if="${#lists.isEmpty(movimentacoes)}">
-								<td colspan="4" class="empty-message">Nenhuma movimentação
+								<td colspan="5" class="empty-message">Nenhuma movimentação
 									cadastrada.</td>
 							</tr>
+
 						</tbody>
-
 					</table>
-				</div>
 
+				</div>
 			</div>
 
 			<div class="page-actions">

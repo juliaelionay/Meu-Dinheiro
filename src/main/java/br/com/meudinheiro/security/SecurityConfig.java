@@ -1,3 +1,4 @@
+
 package br.com.meudinheiro.security;
 
 import org.springframework.context.annotation.Bean;
@@ -20,22 +21,18 @@ public class SecurityConfig {
 
 		http.authorizeHttpRequests(auth -> auth
 
-				// Administrador
 				.requestMatchers("/admin", "/admin/**").hasRole("ADMIN")
 
-				// Usuário comum
 				.requestMatchers("/usuario", "/usuario/**").hasAnyRole("ADMIN", "USUARIO")
 
-				// Visitante
 				.requestMatchers("/visitante", "/visitante/**").hasAnyRole("ADMIN", "VISITANTE")
 
-				// Páginas públicas
 				.requestMatchers("/", "/cadastro", "/login", "/css/**", "/js/**", "/images/**").permitAll()
 
-				// Demais páginas exigem autenticação
 				.anyRequest().authenticated())
 
-				.formLogin(form -> form.loginPage("/login").permitAll())
+				.formLogin(
+						form -> form.loginPage("/login").defaultSuccessUrl("/usuario/movimentacoes", true).permitAll())
 
 				.logout(logout -> logout.logoutSuccessUrl("/"));
 

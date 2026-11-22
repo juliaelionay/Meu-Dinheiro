@@ -32,4 +32,27 @@ public class MovimentacaoService {
 		return movimentacoes.stream().filter(m -> tipo.equals(m.getTipo())).map(Movimentacao::getValor)
 				.reduce(BigDecimal.ZERO, BigDecimal::add);
 	}
+
+	public Movimentacao buscarPorId(Long id, Usuario usuario) {
+		return movimentacaoRepository.findByIdAndUsuario(id, usuario)
+				.orElseThrow(() -> new IllegalArgumentException("Movimentação não encontrada."));
+	}
+
+	public Movimentacao atualizar(Long id, Movimentacao dados, Usuario usuario) {
+
+		Movimentacao movimentacao = buscarPorId(id, usuario);
+
+		movimentacao.setDescricao(dados.getDescricao());
+		movimentacao.setValor(dados.getValor());
+		movimentacao.setData(dados.getData());
+		movimentacao.setTipo(dados.getTipo());
+
+		return movimentacaoRepository.save(movimentacao);
+	}
+
+	public void excluir(Long id, Usuario usuario) {
+		Movimentacao movimentacao = buscarPorId(id, usuario);
+		movimentacaoRepository.delete(movimentacao);
+	}
+
 }

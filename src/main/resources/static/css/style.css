@@ -65,19 +65,22 @@ nav a:hover, .login:hover {
 }
 
 .btn-primary {
-	background: #159b65;
-	color: white;
-	padding: 13px 22px;
-	margin: 15px 5px;
-	border-radius: 8px;
-	text-decoration: none;
-	font-weight: bold;
-	display: inline-block;
-	border-radius: 8px
+    background: #159b65;
+    color: white;
+    padding: 13px 22px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    display: inline-block;
+    cursor: pointer;
+    transition: background 0.2s;
 }
 
 .btn-primary:hover {
-	background: #117c51;
+    background: #117c51;
 }
 
 .hero {
@@ -491,6 +494,11 @@ footer {
 	margin: 0 auto;
 }
 
+.page-header form {
+    display: inline-block;
+    margin-top: 15px;
+}
+
 .page-header {
 	margin-bottom: 30px;
 }
@@ -678,4 +686,43 @@ footer {
 	.summary-grid {
 		grid-template-columns: 1fr;
 	}
+}
+
+/* AÇÕES DAS MOVIMENTAÇÕES */
+.movement-actions {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.movement-actions form {
+	margin: 0;
+}
+
+.btn-edit, .btn-delete {
+	border: none;
+	border-radius: 6px;
+	padding: 8px 12px;
+	font-size: 12px;
+	font-weight: 600;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.btn-edit {
+	background: #e8f5ee;
+	color: #159b65;
+}
+
+.btn-edit:hover {
+	background: #d7eee2;
+}
+
+.btn-delete {
+	background: #fdecec;
+	color: #dc5656;
+}
+
+.btn-delete:hover {
+	background: #fbdada;
 }
